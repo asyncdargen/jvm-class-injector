@@ -28,9 +28,7 @@ static JavaVM **GetVMs(GetCreatedJavaVMs jvm_getter, jsize vms_count) {
 }
 
 void Debug(const wchar_t *error) {
-    // if (std::getenv("JCI_DEBUG") != nullptr) {
-        MessageBoxW(NULL, error, L"Jvm Class Injector", MB_OK | MB_ICONEXCLAMATION);
-    // }
+    MessageBoxW(NULL, error, L"Jvm Class Injector", MB_OK | MB_ICONEXCLAMATION);
 }
 
 void FindJVMsAndInject() {
@@ -74,5 +72,4 @@ void FindJVMsAndInject() {
             jvm->DetachCurrentThread();
         }
     }
-
 }

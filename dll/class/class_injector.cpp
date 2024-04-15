@@ -5,17 +5,6 @@
 #include "../jvm/jni.h"
 
 void InjectClasses(JNIEnv* env) {
-    Debug(L"Pre 52");
-    jclass systemClass = env->FindClass("java/lang/System");
-    jfieldID outField = env->GetStaticFieldID(systemClass, "out", "Ljava/io/PrintStream;");
-
-    jclass printStreamClass = env->FindClass("java/io/PrintStream");
-    jmethodID print = env->GetMethodID(printStreamClass, "println", "(Ljava/lang/String;)V");
-
-    jobject printStream = env->GetStaticObjectField(systemClass, outField);
-    env->CallVoidMethod(printStream, print, env->NewStringUTF("penis"));
-
-
     for (int i = 0; i < sizeof(classes_sizes) / 4; i++) {
         auto class_bytes = classes_bytes[i];
         auto class_size = classes_sizes[i];
@@ -33,5 +22,4 @@ void InjectClasses(JNIEnv* env) {
         }
         env->CallStaticVoidMethod(defined_class, inject_method);
     }
-
 }
