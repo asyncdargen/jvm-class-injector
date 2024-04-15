@@ -1,0 +1,3 @@
+java/*.class
+java/classes/*.class
+cmake-build-debug
