@@ -11,13 +11,13 @@ set_target_properties(jvm_class_injector PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "../out"
         PREFIX "")
 
-set(INJECTING_CLASS_PATH "classes")
+set(INJECTING_CLASS_PATH "../injecting-classes")
 set(JAVA_VERSION "1.8")
 
 set(JAVA_DIR "../java")
 
 add_custom_target(compile_injecting_classes
-        COMMAND ${CMAKE_COMMAND} -E chdir ${JAVA_DIR} javac -source ${JAVA_VERSION} -target ${JAVA_VERSION} ${INJECTING_CLASS_PATH}/*.java
+        COMMAND ${CMAKE_COMMAND} -E chdir ${INJECTING_CLASS_PATH} javac -source ${JAVA_VERSION} -target ${JAVA_VERSION} *.java
         COMMENT "Compile injecting classes"
 )
 add_custom_target(compile_header_preparer_class

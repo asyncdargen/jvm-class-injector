@@ -1,5 +1,5 @@
 java/*.class
-java/classes/*.class
+injecting-classes/*.class
 out/*.dll
 .idea
 cmake-build-debug

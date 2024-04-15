@@ -23,7 +23,8 @@ ___
 ___
 ### Configuration
 In CMakeList.txt
+
 ```cmake
-set(INJECTING_CLASS_PATH "classes") # Path to injecting classes (by default in java/classes)
+set(INJECTING_CLASS_PATH "injecting-classes") # Path to injecting injecting-classes (by default in injecting-classes)
 set(JAVA_VERSION "1.8") # Java compiler target version
 ```
