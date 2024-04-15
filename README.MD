@@ -23,9 +23,10 @@ ___
 + Inject with Process Hacker, Extreme Injector, etc.
 ___
 ### Configuration
-In CMakeList.txt
+In CMakeList.txt:
 
 ```cmake
 set(INJECTING_CLASS_PATH "injecting-classes") # Path to injecting injecting-classes (by default in injecting-classes)
 set(JAVA_VERSION "1.8") # Java compiler target version
 ```
+In `dll/class/class_injector.cpp` you can specify classloader `jobject GetClassLoader(JNIEnv* env)` for class and edit inject logic

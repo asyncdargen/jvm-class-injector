@@ -4,12 +4,16 @@
 #include "../injector/injector.h"
 #include "../jvm/jni.h"
 
+jobject GetClassLoader(JNIEnv* env) {
+    return nullptr;
+}
+
 void InjectClasses(JNIEnv* env) {
     for (int i = 0; i < sizeof(classes_sizes) / 4; i++) {
         auto class_bytes = classes_bytes[i];
         auto class_size = classes_sizes[i];
 
-        auto defined_class = env->DefineClass(nullptr, nullptr, class_bytes, class_size);
+        auto defined_class = env->DefineClass(nullptr, GetClassLoader(env), class_bytes, class_size);
         if (defined_class == nullptr) {
             Debug(L"Couldn`t define class");
             continue;
