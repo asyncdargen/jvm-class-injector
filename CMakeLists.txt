@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.28)
 project(jvm_class_injector)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
 add_library(jvm_class_injector SHARED dll/main.cpp dll/injector/injector.cpp dll/class/class_injector.cpp
         dll/class/classes.h)
