@@ -6,11 +6,15 @@ set(CMAKE_CXX_STANDARD 14)
 add_library(jvm_class_injector SHARED dll/main.cpp dll/injector/injector.cpp dll/class/class_injector.cpp
         dll/class/classes.h)
 
-set_target_properties(jvm_class_injector PROPERTIES OUTPUT_NAME "injector")
+set_target_properties(jvm_class_injector PROPERTIES
+        OUTPUT_NAME "injector"
+        RUNTIME_OUTPUT_DIRECTORY "../out"
+        PREFIX "")
 
-set(JAVA_DIR "../java")
 set(INJECTING_CLASS_PATH "classes")
 set(JAVA_VERSION "1.8")
+
+set(JAVA_DIR "../java")
 
 add_custom_target(compile_injecting_classes
         COMMAND ${CMAKE_COMMAND} -E chdir ${JAVA_DIR} javac -source ${JAVA_VERSION} -target ${JAVA_VERSION} ${INJECTING_CLASS_PATH}/*.java

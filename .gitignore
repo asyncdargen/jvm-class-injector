@@ -1,3 +1,5 @@
 java/*.class
 java/classes/*.class
+out/*.dll
+.idea
 cmake-build-debug
