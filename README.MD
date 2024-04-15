@@ -20,6 +20,7 @@ ___
     ```
 + Run CMake
 + Take output injector.dll in out dir
++ Inject with Process Hacker, Extreme Injector, etc.
 ___
 ### Configuration
 In CMakeList.txt
