@@ -8,13 +8,13 @@ add_library(jvm_class_injector SHARED dll/main.cpp dll/injector/injector.cpp dll
 
 set_target_properties(jvm_class_injector PROPERTIES
         OUTPUT_NAME "injector"
-        RUNTIME_OUTPUT_DIRECTORY "../out"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/out"
         PREFIX "")
 
-set(INJECTING_CLASS_PATH "../injecting-classes")
+set(INJECTING_CLASS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/injecting-classes")
 set(JAVA_VERSION "1.8")
 
-set(JAVA_DIR "../java")
+set(JAVA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/java")
 
 add_custom_target(compile_injecting_classes
         COMMAND ${CMAKE_COMMAND} -E chdir ${INJECTING_CLASS_PATH} javac -source ${JAVA_VERSION} -target ${JAVA_VERSION} *.java
